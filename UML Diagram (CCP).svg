@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="980" viewBox="0 0 900 980" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="980" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <rect x="0" y="0" width="900" height="50" fill="#1A3C6E"/>
+  <text x="450" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">Smart Home Automation System — UML Class Diagram</text>
+  <text x="450" y="38" text-anchor="middle" font-size="11" fill="#CCDDFF">CT-260 Object Oriented Programming · NED University of Engineering &amp; Technology · Spring 2026</text>
+
+  <!-- Arrow marker (inheritance - open triangle) -->
+  <defs>
+    <marker id="inherit" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M1 1L10 6L1 11Z" fill="white" stroke="#555555" stroke-width="1.2"/>
+    </marker>
+    <marker id="realize" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M1 1L10 6L1 11Z" fill="white" stroke="#555555" stroke-width="1.2"/>
+    </marker>
+    <marker id="assoc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#555555" stroke-width="1.5" stroke-linecap="round"/>
+    </marker>
+  </defs>
+
+  <!-- ═══ IObserver Interface (top-left) ═══ -->
+  <rect x="30" y="65" width="195" height="72" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+  <rect x="30" y="65" width="195" height="24" rx="6" fill="#1D9E75" stroke="#0F6E56" stroke-width="1"/>
+  <rect x="30" y="78" width="195" height="11" fill="#1D9E75"/>
+  <text x="127" y="79" text-anchor="middle" font-size="10" font-style="italic" fill="#FFFFFF">«interface»</text>
+  <text x="127" y="94" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">IObserver</text>
+  <line x1="30" y1="101" x2="225" y2="101" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="40" y="115" font-size="10" font-style="italic" fill="#085041">+ onNotify(event, data): void</text>
+
+  <!-- ═══ ICommand Interface (top-right) ═══ -->
+  <rect x="665" y="65" width="205" height="82" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+  <rect x="665" y="65" width="205" height="24" rx="6" fill="#D85A30" stroke="#993C1D" stroke-width="1"/>
+  <rect x="665" y="78" width="205" height="11" fill="#D85A30"/>
+  <text x="767" y="79" text-anchor="middle" font-size="10" font-style="italic" fill="#FFFFFF">«interface»</text>
+  <text x="767" y="94" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">ICommand</text>
+  <line x1="665" y1="101" x2="870" y2="101" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="675" y="116" font-size="10" font-style="italic" fill="#712B13">+ execute(): void</text>
+  <text x="675" y="130" font-size="10" font-style="italic" fill="#712B13">+ undo(): void</text>
+
+  <!-- ═══ Device Abstract Class (center) ═══ -->
+  <rect x="330" y="65" width="230" height="145" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.5"/>
+  <rect x="330" y="65" width="230" height="24" rx="6" fill="#7F77DD" stroke="#534AB7" stroke-width="1.5"/>
+  <rect x="330" y="78" width="230" height="11" fill="#7F77DD"/>
+  <text x="445" y="79" text-anchor="middle" font-size="10" font-style="italic" fill="#FFFFFF">«abstract»</text>
+  <text x="445" y="94" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">Device</text>
+  <line x1="330" y1="101" x2="560" y2="101" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="340" y="116" font-size="10" fill="#26215C"># deviceName: string</text>
+  <text x="340" y="130" font-size="10" fill="#26215C"># location: string</text>
+  <text x="340" y="144" font-size="10" fill="#26215C"># isOn: bool</text>
+  <text x="340" y="158" font-size="10" fill="#26215C"># powerConsumption: int</text>
+  <line x1="330" y1="165" x2="560" y2="165" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="340" y="180" font-size="10" font-style="italic" fill="#26215C">+ turnOn(): void</text>
+  <text x="340" y="194" font-size="10" font-style="italic" fill="#26215C">+ turnOff(): void</text>
+
+  <!-- IObserver realization to Device (dashed) -->
+  <line x1="225" y1="108" x2="330" y2="120" stroke="#555555" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#realize)"/>
+
+  <!-- ═══ Inheritance arrows (devices to Device) ═══ -->
+  <!-- SmartLight -->
+  <path d="M95 280 L95 245 L420 245 L420 210" fill="none" stroke="#555555" stroke-width="1.2" marker-end="url(#inherit)"/>
+  <!-- SmartFan -->
+  <path d="M235 280 L235 245 L430 245 L430 210" fill="none" stroke="#555555" stroke-width="1.2" marker-end="url(#inherit)"/>
+  <!-- AirConditioner -->
+  <line x1="450" y1="280" x2="450" y2="210" stroke="#555555" stroke-width="1.2" marker-end="url(#inherit)"/>
+  <!-- SecurityCamera -->
+  <path d="M640" y1="310" x2="640" y2="245" fill="none" stroke="#555555" stroke-width="1.2"/>
+  <path d="M640 280 L640 245 L470 245 L470 210" fill="none" stroke="#555555" stroke-width="1.2" marker-end="url(#inherit)"/>
+  <!-- SmartLock -->
+  <path d="M790 280 L790 245 L480 245 L480 210" fill="none" stroke="#555555" stroke-width="1.2" marker-end="url(#inherit)"/>
+
+  <!-- ═══ SmartLight ═══ -->
+  <rect x="20" y="280" width="145" height="130" rx="6" fill="#FAEEDA" stroke="#854F0B" stroke-width="1"/>
+  <rect x="20" y="280" width="145" height="22" rx="6" fill="#EF9F27" stroke="#854F0B" stroke-width="1"/>
+  <rect x="20" y="291" width="145" height="11" fill="#EF9F27"/>
+  <text x="92" y="295" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">SmartLight</text>
+  <line x1="20" y1="302" x2="165" y2="302" stroke="#854F0B" stroke-width="0.8"/>
+  <text x="28" y="316" font-size="9.5" fill="#412402">- brightness: int</text>
+  <text x="28" y="330" font-size="9.5" fill="#412402">- colorMode: string</text>
+  <line x1="20" y1="338" x2="165" y2="338" stroke="#854F0B" stroke-width="0.8"/>
+  <text x="28" y="352" font-size="9.5" fill="#412402">+ turnOn()</text>
+  <text x="28" y="366" font-size="9.5" fill="#412402">+ turnOff()</text>
+  <text x="28" y="380" font-size="9.5" fill="#412402">+ setBrightness()</text>
+  <text x="28" y="394" font-size="9.5" fill="#412402">+ setColor()</text>
+
+  <!-- ═══ SmartFan ═══ -->
+  <rect x="175" y="280" width="130" height="118" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="1"/>
+  <rect x="175" y="280" width="130" height="22" rx="6" fill="#378ADD" stroke="#185FA5" stroke-width="1"/>
+  <rect x="175" y="291" width="130" height="11" fill="#378ADD"/>
+  <text x="240" y="295" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">SmartFan</text>
+  <line x1="175" y1="302" x2="305" y2="302" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="183" y="316" font-size="9.5" fill="#042C53">- speed: int</text>
+  <line x1="175" y1="324" x2="305" y2="324" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="183" y="338" font-size="9.5" fill="#042C53">+ turnOn()</text>
+  <text x="183" y="352" font-size="9.5" fill="#042C53">+ turnOff()</text>
+  <text x="183" y="366" font-size="9.5" fill="#042C53">+ setSpeed()</text>
+  <text x="183" y="380" font-size="9.5" fill="#042C53">+ onNotify()</text>
+
+  <!-- ═══ AirConditioner ═══ -->
+  <rect x="320" y="280" width="155" height="130" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+  <rect x="320" y="280" width="155" height="22" rx="6" fill="#1D9E75" stroke="#0F6E56" stroke-width="1"/>
+  <rect x="320" y="291" width="155" height="11" fill="#1D9E75"/>
+  <text x="397" y="295" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">AirConditioner</text>
+  <line x1="320" y1="302" x2="475" y2="302" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="328" y="316" font-size="9.5" fill="#04342C">- targetTemp: int</text>
+  <text x="328" y="330" font-size="9.5" fill="#04342C">- mode: string</text>
+  <line x1="320" y1="338" x2="475" y2="338" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="328" y="352" font-size="9.5" fill="#04342C">+ turnOn()</text>
+  <text x="328" y="366" font-size="9.5" fill="#04342C">+ turnOff()</text>
+  <text x="328" y="380" font-size="9.5" fill="#04342C">+ setTemperature()</text>
+  <text x="328" y="394" font-size="9.5" fill="#04342C">+ onNotify()</text>
+
+  <!-- ═══ SecurityCamera ═══ -->
+  <rect x="490" y="280" width="155" height="130" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+  <rect x="490" y="280" width="155" height="22" rx="6" fill="#D85A30" stroke="#993C1D" stroke-width="1"/>
+  <rect x="490" y="291" width="155" height="11" fill="#D85A30"/>
+  <text x="567" y="295" text-anchor="middle" font-size="11" font-weight="bold" fill="#FFFFFF">SecurityCamera</text>
+  <line x1="490" y1="302" x2="645" y2="302" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="498" y="316" font-size="9.5" fill="#4A1B0C">- isRecording: bool</text>
+  <text x="498" y="330" font-size="9.5" fill="#4A1B0C">- sensitivity: int</text>
+  <line x1="490" y1="338" x2="645" y2="338" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="498" y="352" font-size="9.5" fill="#4A1B0C">+ turnOn()</text>
+  <text x="498" y="366" font-size="9.5" fill="#4A1B0C">+ startRecording()</text>
+  <text x="498" y="380" font-size="9.5" fill="#4A1B0C">+ stopRecording()</text>
+  <text x="498" y="394" font-size="9.5" fill="#4A1B0C">+ onNotify()</text>
+
+  <!-- ═══ SmartLock ═══ -->
+  <rect x="660" y="280" width="140" height="118" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+  <rect x="660" y="280" width="140" height="22" rx="6" fill="#888780" stroke="#5F5E5A" stroke-width="1"/>
+  <rect x="660" y="291" width="140" height="11" fill="#888780"/>
+  <text x="730" y="295" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">SmartLock</text>
+  <line x1="660" y1="302" x2="800" y2="302" stroke="#5F5E5A" stroke-width="0.8"/>
+  <text x="668" y="316" font-size="9.5" fill="#2C2C2A">- isLocked: bool</text>
+  <text x="668" y="330" font-size="9.5" fill="#2C2C2A">- accessCode: string</text>
+  <line x1="660" y1="338" x2="800" y2="338" stroke="#5F5E5A" stroke-width="0.8"/>
+  <text x="668" y="352" font-size="9.5" fill="#2C2C2A">+ turnOn()</text>
+  <text x="668" y="366" font-size="9.5" fill="#2C2C2A">+ lock()</text>
+  <text x="668" y="380" font-size="9.5" fill="#2C2C2A">+ unlock(code)</text>
+  <text x="668" y="394" font-size="9.5" fill="#2C2C2A">+ onNotify()</text>
+
+  <!-- ═══ HomeController Singleton ═══ -->
+  <rect x="270" y="480" width="310" height="155" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.5"/>
+  <rect x="270" y="480" width="310" height="24" rx="6" fill="#534AB7" stroke="#534AB7" stroke-width="1.5"/>
+  <rect x="270" y="493" width="310" height="11" fill="#534AB7"/>
+  <text x="425" y="494" text-anchor="middle" font-size="10" font-style="italic" fill="#CCCCFF">«singleton»</text>
+  <text x="425" y="508" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">HomeController</text>
+  <line x1="270" y1="515" x2="580" y2="515" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="280" y="529" font-size="9.5" fill="#26215C">- instance: HomeController*</text>
+  <text x="280" y="543" font-size="9.5" fill="#26215C">- devices: vector&lt;Device*&gt;</text>
+  <text x="280" y="557" font-size="9.5" fill="#26215C">- commandHistory: vector&lt;ICommand*&gt;</text>
+  <text x="280" y="571" font-size="9.5" fill="#26215C">- homeOwner: string</text>
+  <line x1="270" y1="578" x2="580" y2="578" stroke="#534AB7" stroke-width="0.8"/>
+  <text x="280" y="592" font-size="9.5" fill="#26215C">+ getInstance(): HomeController*</text>
+  <text x="280" y="606" font-size="9.5" fill="#26215C">+ addDevice(Device*): void</text>
+  <text x="280" y="620" font-size="9.5" fill="#26215C">+ broadcastEvent(event): void</text>
+
+  <!-- HC → Device aggregation -->
+  <path d="M425 480 L425 440 L450 420 L450 210" fill="none" stroke="#888888" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#assoc)"/>
+  <text x="435" y="455" font-size="9" fill="#555555">uses *</text>
+
+  <!-- ═══ TurnOnCommand ═══ -->
+  <rect x="30" y="480" width="150" height="95" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+  <rect x="30" y="480" width="150" height="22" rx="6" fill="#D85A30" stroke="#993C1D" stroke-width="1"/>
+  <rect x="30" y="491" width="150" height="11" fill="#D85A30"/>
+  <text x="105" y="495" text-anchor="middle" font-size="11" font-weight="bold" fill="#FFFFFF">TurnOnCommand</text>
+  <line x1="30" y1="502" x2="180" y2="502" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="38" y="516" font-size="9.5" fill="#4A1B0C">- device: Device*</text>
+  <line x1="30" y1="524" x2="180" y2="524" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="38" y="538" font-size="9.5" fill="#4A1B0C">+ execute(): void</text>
+  <text x="38" y="552" font-size="9.5" fill="#4A1B0C">+ undo(): void</text>
+
+  <!-- ═══ TurnOffCommand ═══ -->
+  <rect x="30" y="590" width="150" height="95" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+  <rect x="30" y="590" width="150" height="22" rx="6" fill="#993C1D" stroke="#993C1D" stroke-width="1"/>
+  <rect x="30" y="601" width="150" height="11" fill="#993C1D"/>
+  <text x="105" y="605" text-anchor="middle" font-size="11" font-weight="bold" fill="#FFFFFF">TurnOffCommand</text>
+  <line x1="30" y1="612" x2="180" y2="612" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="38" y="626" font-size="9.5" fill="#4A1B0C">- device: Device*</text>
+  <line x1="30" y1="634" x2="180" y2="634" stroke="#993C1D" stroke-width="0.8"/>
+  <text x="38" y="648" font-size="9.5" fill="#4A1B0C">+ execute(): void</text>
+  <text x="38" y="662" font-size="9.5" fill="#4A1B0C">+ undo(): void</text>
+
+  <!-- Command classes → ICommand (dashed realization) -->
+  <path d="M105 480 L105 430 L767 430 L767 147" fill="none" stroke="#555555" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#realize)"/>
+
+  <!-- ═══ Legend ═══ -->
+  <rect x="20" y="710" width="860" height="190" rx="8" fill="#F8F8F8" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="450" y="732" text-anchor="middle" font-size="13" font-weight="bold" fill="#1A3C6E">Design Patterns &amp; OOP Pillars Applied</text>
+
+  <!-- Pattern indicators -->
+  <rect x="40" y="745" width="12" height="12" rx="2" fill="#7F77DD"/>
+  <text x="60" y="756" font-size="10" fill="#333333">Singleton Pattern — HomeController ensures one central hub manages all devices</text>
+  <rect x="40" y="765" width="12" height="12" rx="2" fill="#1D9E75"/>
+  <text x="60" y="776" font-size="10" fill="#333333">Observer Pattern — Devices react autonomously to broadcast events via onNotify()</text>
+  <rect x="40" y="785" width="12" height="12" rx="2" fill="#D85A30"/>
+  <text x="60" y="796" font-size="10" fill="#333333">Command Pattern — TurnOn/TurnOffCommand encapsulate operations with undo support</text>
+
+  <!-- Arrow key -->
+  <line x1="40" y1="816" x2="80" y2="816" stroke="#555555" stroke-width="1.5" marker-end="url(#inherit)"/>
+  <text x="88" y="820" font-size="10" fill="#333333">Inheritance (solid line + open triangle)</text>
+  <line x1="40" y1="836" x2="80" y2="836" stroke="#555555" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#realize)"/>
+  <text x="88" y="840" font-size="10" fill="#333333">Realization / Dependency (dashed line)</text>
+
+  <!-- OOP pillars -->
+  <text x="450" y="820" font-size="10" fill="#333333" font-weight="bold">Encapsulation:</text>
+  <text x="540" y="820" font-size="10" fill="#333333">Private/protected members in all classes</text>
+  <text x="450" y="836" font-size="10" fill="#333333" font-weight="bold">Inheritance:</text>
+  <text x="522" y="836" font-size="10" fill="#333333">Device → SmartLight, SmartFan, AC, Camera, Lock</text>
+  <text x="450" y="852" font-size="10" fill="#333333" font-weight="bold">Polymorphism:</text>
+  <text x="540" y="852" font-size="10" fill="#333333">Virtual turnOn() / turnOff() / getStatus()</text>
+  <text x="450" y="868" font-size="10" fill="#333333" font-weight="bold">Abstraction:</text>
+  <text x="528" y="868" font-size="10" fill="#333333">Device is abstract with pure virtual methods</text>
+
+  <!-- Footer -->
+  <rect x="0" y="930" width="900" height="50" fill="#1A3C6E"/>
+  <text x="450" y="950" text-anchor="middle" font-size="11" fill="#FFFFFF">Syeda Faiza Aslam (CT-25064)  ·  Mahreen (CT-25069)  ·  Instructor: Muhammad Ahmed Zaki</text>
+  <text x="450" y="968" text-anchor="middle" font-size="10" fill="#AABBDD">NED University of Engineering &amp; Technology  ·  CT-260 Object Oriented Programming  ·  Spring 2026</text>
+</svg>
